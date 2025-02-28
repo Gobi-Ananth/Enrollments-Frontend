@@ -1,4 +1,4 @@
-import NavButton from "./NavButton";
+import SvgButton from "./SvgButton";
 
 import "./Wrapper.css";
 
@@ -21,22 +21,22 @@ export default function Wrapper({ title, children }) {
           <object data={Plus} type="image/svg+xml"></object>
         </div>
         <div className="window-controls">
-          <NavButton svgTitle={Minimize} />
-          <NavButton svgTitle={Maximize} />
-          <NavButton svgTitle={Close} />
+          <SvgButton svgLabel={Minimize} />
+          <SvgButton svgLabel={Maximize} />
+          <SvgButton svgLabel={Close} />
         </div>
       </section>
       <section className="lower-nav">
         <div className="nav-controls">
-          <NavButton svgTitle={Left} />
-          <NavButton svgTitle={Right} />
+          <SvgButton svgLabel={Left} />
+          <SvgButton svgLabel={Right} />
         </div>
         <div className="address-bar">
           <object data={Lock} type="image/svg+xml"></object>
           <h3 className="text">{title}</h3>
         </div>
         <div className="nav-controls">
-          <NavButton svgTitle={Hamburger} />
+          <SvgButton svgLabel={Hamburger} />
         </div>
       </section>
 
