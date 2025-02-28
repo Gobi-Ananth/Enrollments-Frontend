@@ -14,7 +14,7 @@
 body {
     background: url("/bg-image.svg") no-repeat center center;
     background-size: cover;
-    min-height: 110%;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
