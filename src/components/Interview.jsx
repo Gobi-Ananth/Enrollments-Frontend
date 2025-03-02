@@ -17,10 +17,15 @@ export default function Interview() {
 
   const fetchAvailableDates = async () => {
     try {
-      const response = await axios.get(
-        "Gobi backend api for the date fetching"
+      const response = await axios.get("/api/slots/available", {
+        withCredentials: true,
+      });
+      const slotData = response.data.data;
+
+      const availableDatesList = slotData.map(
+        (slot) => new Date(slot.time).toISOString().split("T")[0]
       );
-      setAvailableDates(response.data);
+      setAvailableDates(availableDatesList);
     } catch (error) {
       console.error("Error fetching available dates:", error);
     }
@@ -31,9 +36,10 @@ export default function Interview() {
     try {
       const formattedDate = selectedDate.toISOString().split("T")[0];
       const response = await axios.get(
-        `gobi backend api for the slots fetching=${formattedDate}`
+        `/api/slots/available?date=${formattedDate}`,
+        { withCredentials: true }
       );
-      setSlots(response.data);
+      setSlots(response.data.data);
     } catch (error) {
       console.error("Error fetching slots:", error);
     }
@@ -59,16 +65,36 @@ export default function Interview() {
     }
 
     try {
-      await axios.post("Gobi slot booking api", {
-        date: date.toISOString().split("T")[0],
-        time: selectedSlot,
-      });
-
+      await axios.post(
+        `/api/slots/select/${selectedSlot._id}`,
+        {},
+        { withCredentials: true }
+      );
       alert("Slot booked successfully!");
       setSelectedSlot(null);
       fetchSlots(date);
     } catch (error) {
       console.error("Error booking slot:", error);
+      alert(error.response?.data?.message || "Something went wrong!");
+    }
+  };
+
+  const handleReady = async () => {
+    if (!selectedSlot) {
+      alert("Please select a time slot first!");
+      return;
+    }
+
+    try {
+      await axios.post(
+        `/api/slots/ready/${selectedSlot._id}`,
+        {},
+        { withCredentials: true }
+      );
+      alert("Slot marked as ready!");
+    } catch (error) {
+      console.error("Error marking slot as ready:", error);
+      alert(error.response?.data?.message || "Something went wrong!");
     }
   };
 
@@ -79,7 +105,7 @@ export default function Interview() {
         <section className="calendar-section">
           <Calendar
             onChange={handleDateChange}
-            value={date}
+            value={null}
             tileDisabled={({ date }) =>
               !availableDates.includes(date.toISOString().split("T")[0])
             }
@@ -100,7 +126,7 @@ export default function Interview() {
                   }`}
                   onClick={() => handleSlotSelection(slot)}
                 >
-                  {slot}
+                  {new Date(slot.time).toLocaleTimeString()}
                 </button>
               ))}
             </div>
@@ -111,7 +137,7 @@ export default function Interview() {
       </div>
 
       <button className="submit-button" onClick={handleSubmit}>
-        Submit
+        Book Slot
       </button>
     </div>
   );
