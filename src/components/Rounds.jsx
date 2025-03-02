@@ -14,8 +14,8 @@ const roundsData = [
 ];
 
 export default function Rounds() {
-  const [currentRound, setCurrentRound] = useState(1);
-  const [progress, setProgress] = useState(50);
+  const [currentRound, setCurrentRound] = useState(3);
+  const [progress, setProgress] = useState(75);
 
   // const { user } = useUserStore();
 
