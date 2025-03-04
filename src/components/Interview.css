@@ -12,7 +12,8 @@
     display: flex;
     width:100%;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
+    gap:50px;
 }
 
 
@@ -23,19 +24,35 @@
     padding: 20px;
     background: #FECE30;
     border-radius: 8px;
+    border:solid black 4px;
 }
 
-.slots-container{
-    width:350px;
+.slots-section{
+    width:400px;
+    height:306px;
+    border-radius: 8px;
+    padding:20px;
+    background-color: #FECE30;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border:solid black 4px;
+}
+
+.slots-container, .slots-section > p{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:5px;
 }
 
 .calendar-section .react-calendar {
-    width: 400px;
-    max-width: 100%;
     background: #FECE30;
     border:none;
     padding: 10px;
-    font-family:monospace;
+    font-family: "Cooper Hewitt", sans-serif;
 }
 
 .calendar-section .react-calendar__navigation {
@@ -45,6 +62,10 @@
     font-size: 18px;
     font-weight: bold;
     color: black;
+}
+
+.react-calendar__navigation__label__labelText, .submit-button{
+    font-family: "Cooper Hewitt", sans-serif;
 }
 
 .calendar-section .react-calendar__navigation button {
@@ -68,7 +89,7 @@
 
 .calendar-section .react-calendar__tile {
     text-align: center;
-    padding: 10px;
+    padding: 4px 10px;
     font-size: 14px;
     border-radius: 4px;
     cursor: pointer;
@@ -87,4 +108,14 @@
 
 .calendar-section .react-calendar__tile:hover {
     background: #00A8E8;
+}
+
+.submit-button {
+    margin-top: 20px;
+    width: 8rem;
+    padding: 6px 8px;
+    font-size:1.2rem;
+    font-weight: 100;
+    border-radius: 4px;
+    background-color: #2AC080;
 }

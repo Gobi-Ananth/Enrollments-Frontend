@@ -22,9 +22,13 @@ export default function Interview() {
       });
       const slotData = response.data.data;
 
-      const availableDatesList = slotData.map(
-        (slot) => new Date(slot.time).toISOString().split("T")[0]
-      );
+      const availableDatesList = [
+        ...new Set(
+          slotData.map(
+            (slot) => new Date(slot.time).toISOString().split("T")[0]
+          )
+        ),
+      ];
       setAvailableDates(availableDatesList);
     } catch (error) {
       console.error("Error fetching available dates:", error);
@@ -39,7 +43,13 @@ export default function Interview() {
         `/api/slots/available?date=${formattedDate}`,
         { withCredentials: true }
       );
-      setSlots(response.data.data);
+
+      const filteredSlots = response.data.data.filter(
+        (slot) =>
+          new Date(slot.time).toISOString().split("T")[0] === formattedDate
+      );
+
+      setSlots(filteredSlots);
     } catch (error) {
       console.error("Error fetching slots:", error);
     }
@@ -48,9 +58,14 @@ export default function Interview() {
 
   const handleDateChange = (selectedDate) => {
     const formattedDate = selectedDate.toISOString().split("T")[0];
+
     if (availableDates.includes(formattedDate)) {
       setDate(selectedDate);
+      setSelectedSlot(null);
       fetchSlots(selectedDate);
+    } else {
+      setSlots([]);
+      setSelectedSlot(null);
     }
   };
 
@@ -79,25 +94,6 @@ export default function Interview() {
     }
   };
 
-  const handleReady = async () => {
-    if (!selectedSlot) {
-      alert("Please select a time slot first!");
-      return;
-    }
-
-    try {
-      await axios.post(
-        `/api/slots/ready/${selectedSlot._id}`,
-        {},
-        { withCredentials: true }
-      );
-      alert("Slot marked as ready!");
-    } catch (error) {
-      console.error("Error marking slot as ready:", error);
-      alert(error.response?.data?.message || "Something went wrong!");
-    }
-  };
-
   return (
     <div className="container">
       <div className="Int-heading">Interview Slot</div>
@@ -105,10 +101,11 @@ export default function Interview() {
         <section className="calendar-section">
           <Calendar
             onChange={handleDateChange}
-            value={null}
-            tileDisabled={({ date }) =>
-              !availableDates.includes(date.toISOString().split("T")[0])
-            }
+            value={date}
+            tileDisabled={({ date }) => {
+              const formattedDate = date.toISOString().split("T")[0];
+              return !availableDates.includes(formattedDate);
+            }}
           />
         </section>
 

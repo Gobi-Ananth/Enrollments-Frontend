@@ -4,7 +4,7 @@ import SignUpPage from "./components/SignUpPage";
 import Wrapper from "./components/Wrapper";
 import Rounds from "./components/Rounds";
 import RoundZero from "./components/RoundZero";
-import InterviewRoundZero from "./components/Interview";
+import Interview from "./components/Interview";
 
 export default function App() {
   return (
@@ -14,7 +14,7 @@ export default function App() {
           path="/"
           element={
             <Wrapper>
-              <InterviewRoundZero />
+              <Interview />
             </Wrapper>
           }
         />
