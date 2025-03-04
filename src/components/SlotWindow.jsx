@@ -32,6 +32,11 @@ export default function SlotWindow() {
 
   const handleReadyClick = async () => {
     console.log("Candidate is ready!");
+
+    setTimeout(() => {
+      setMeetingLink("https://meeting.com/join-session");
+      setStatus("confirmed");
+    }, 5000);
   };
 
   return (

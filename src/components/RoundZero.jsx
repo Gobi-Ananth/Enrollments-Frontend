@@ -1,11 +1,24 @@
 import { useState, useEffect } from "react";
-
 import "./RoundZero.css";
-
 import LeftOption from "../assets/LeftOptions.svg";
 import RightOption from "../assets/RightOption.svg";
 
-const questions = [
+const predefinedRandomQuestions = [
+  {
+    label:
+      "Two key members of your team are refusing to collaborate because of personal differences. The project deadline is approaching, and their lack of cooperation affects productivity. How would you handle this situation?",
+  },
+  {
+    label:
+      "During a live online coding competition your team hosts, the platform crashes, preventing participants from submitting their solutions. Participants are frustrated and flooding the chat with complaints. How would you communicate and handle the crisis?",
+  },
+  {
+    label:
+      "You are caught in a disagreement between two board members. Meanwhile, your faculty coordinator, who has a short temper and a history of being difficult to deal with, is calling and asking for someone to speak to him. How would you manage this situation?",
+  },
+];
+
+const baseQuestions = [
   { id: 1, type: "text", label: "Phone Number", required: true },
   { id: 2, type: "text", label: "GitHub Profile (Optional)", required: false },
   {
@@ -62,20 +75,19 @@ const questions = [
       "Have you done any projects previously? If yes, what was your experience doing the project? What problems did you face, and how did you solve them?",
     required: false,
   },
+  { id: 9, type: "textarea", label: "", required: false },
 ];
-
-const sanitizeInput = (input) => {
-  return input.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-};
 
 export default function RoundZero() {
   const [formStarted, setFormStarted] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState(() => {
-    return JSON.parse(sessionStorage.getItem("formAnswers")) || {};
-  });
+  const [answers, setAnswers] = useState(
+    () => JSON.parse(sessionStorage.getItem("formAnswers")) || {}
+  );
   const [formCompleted, setFormCompleted] = useState(false);
   const [errors, setErrors] = useState({});
+  const [questions, setQuestions] = useState(baseQuestions);
+  const [randomQuestionSet, setRandomQuestionSet] = useState(false);
 
   useEffect(() => {
     sessionStorage.setItem("formAnswers", JSON.stringify(answers));
@@ -83,6 +95,19 @@ export default function RoundZero() {
 
   const handleStart = () => {
     setFormStarted(true);
+
+    if (!randomQuestionSet) {
+      const randomQ =
+        predefinedRandomQuestions[
+          Math.floor(Math.random() * predefinedRandomQuestions.length)
+        ];
+      setQuestions((prev) =>
+        prev.map((q) =>
+          q.id === 9 ? { ...q, label: randomQ.label, type: "textarea" } : q
+        )
+      );
+      setRandomQuestionSet(true);
+    }
   };
 
   const handleNext = () => {
@@ -125,7 +150,7 @@ export default function RoundZero() {
   const handleChange = (e) => {
     setAnswers({
       ...answers,
-      [questions[currentQuestion].id]: sanitizeInput(e.target.value),
+      [questions[currentQuestion].id]: e.target.value,
     });
     setErrors({ ...errors, [questions[currentQuestion].id]: "" });
   };
@@ -232,14 +257,7 @@ export default function RoundZero() {
             >
               <img src={LeftOption} alt="Previous Question Button" />
             </button>
-            <button
-              className="btn"
-              onClick={handleNext}
-              disabled={
-                questions[currentQuestion].required &&
-                !answers[questions[currentQuestion].id]
-              }
-            >
+            <button className="btn" onClick={handleNext}>
               <img src={RightOption} alt="Next Question Button" />
             </button>
           </div>
