@@ -3,9 +3,10 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    justify-content: top;
     background-color: #FCEEE3;
     min-height: 88vh;
-    min-width: 80vw;
+    width: 85vw;
     font-family: "Poppins", sans-serif;
     position: relative;
     padding: 20px;
@@ -36,7 +37,6 @@ h2 {
     color: #00171F;
     padding: 0.8rem 6rem;
     border-radius: 24px;
-    display: inline-block;
     font-size: 3.5rem;
     border:solid black 4px;
     box-shadow: 12px 12px 0px black;
@@ -126,4 +126,52 @@ footer {
 }
 
 
-@med
+@media (max-width:720px){
+
+    header div{
+        width:75vw;
+    }
+    
+    .ieee-logo {
+        width: 7rem;
+        margin-bottom: 3rem;
+        margin-top: 2rem;
+    }
+
+    h2{
+        padding:0.3rem 1.2rem;
+        font-size:1.5rem;
+        border: solid black 1.5px;
+        box-shadow: 6px 6px 0px black;
+        border-radius: 12px;
+    }
+
+    .banners{
+        width:8rem;
+    }
+
+    .arrow-icon{
+        width:4.5rem;
+    }
+
+    .standing-guy{
+        width:8rem;
+    }
+    .signup-box p{
+        font-size: 1.2rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .google-signin{
+        font-size: 0.8rem;
+        width:14rem;
+
+        & img{
+            width:20px;
+        }
+    }
+
+    .social-links img{
+        width:1.2rem;
+    }
+}

@@ -11,7 +11,7 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Wrapper></Wrapper>} />
+        <Route path="/" element={<SignUpPage />} />
       </Routes>
     </Router>
   );

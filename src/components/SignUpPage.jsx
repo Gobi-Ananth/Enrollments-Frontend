@@ -19,14 +19,14 @@ export default function SignUpPage() {
           <img src={IEEELogo} alt="IEEE Logo" className="ieee-logo" />
 
           <div>
-            <h2>IEEE ENROLLMENTS</h2>
+            <h2>ENROLLMENTS</h2>
           </div>
         </header>
 
         <section className="signup-box">
           <p>2024-25</p>
           <button className="google-signin">
-            <img src={GoogleLogo} alt="google logo" />
+            <img src={GoogleLogo} alt="google" />
             Sign in with Google
           </button>
         </section>
