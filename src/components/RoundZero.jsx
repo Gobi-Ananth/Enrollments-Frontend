@@ -227,7 +227,7 @@ export default function RoundZero() {
             ) : (
               <>
                 <input
-                  className={`input-field ${
+                  className={`${
                     questions[currentQuestion].type === "textarea"
                       ? "textarea-input"
                       : "text-input"

@@ -24,6 +24,10 @@ export default function ProgressBar({ bgcolor, completed }) {
     transition: "width 0.4s ease-in-out, background-color 0.3s ease-in-out",
   };
 
+  const defaultStyles = {
+    width: "100%",
+  };
+
   return (
     <section aria-label="Progress bar" style={progressBarStyles}>
       <div
@@ -33,7 +37,11 @@ export default function ProgressBar({ bgcolor, completed }) {
         aria-valuemin="0"
         aria-valuemax="100"
       >
-        <span>{`${completed}%`}</span>
+        {completed === 0 ? (
+          <span style={defaultStyles}>Start Your Journey Now</span>
+        ) : (
+          <span>{completed}%</span>
+        )}
       </div>
     </section>
   );

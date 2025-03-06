@@ -18,7 +18,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding:1.3rem;
+    padding:1.3rem;border:solid black 4px;
 }
 
 .question-box{
@@ -29,6 +29,7 @@
     justify-content: center;
     width:100%;
     padding:0 10px;
+    
 }
 
 .question-text{
@@ -64,14 +65,21 @@
 }
 
 .textarea-input {
-        width: 100%;
+    width: 100%;
         padding: 10px;
         box-sizing: border-box;
-        vertical-align: top;
         text-align: left;
         line-height: 1.2;
-        overflow-wrap: break-word;
+        overflow-y: auto;
         white-space: pre-wrap;
+        /* Ensures text wraps */
+        word-wrap: break-word;
+        /* Breaks long words */
+        resize: vertical;
+        /* Allows resizing vertically */
+        height: 100px;
+        /* Set an initial height */
+        max-height: 300px;
 }
 
 

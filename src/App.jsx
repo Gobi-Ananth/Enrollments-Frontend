@@ -11,14 +11,7 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Wrapper>
-              <RoundZero />
-            </Wrapper>
-          }
-        />
+        <Route path="/" element={<Wrapper></Wrapper>} />
       </Routes>
     </Router>
   );
