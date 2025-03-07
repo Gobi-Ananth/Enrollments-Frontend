@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import "./FallBack.css";
 
 const TextColor = [
   { label: "Completed", Color: "#2AC080" },

@@ -7,6 +7,7 @@ import RoundZero from "./components/RoundZero";
 import Interview from "./components/Interview";
 import SlotWindow from "./components/SlotWindow";
 import FallBack from "./components/FallBack";
+import LoadingScreen from "./components/LoadingScreen";
 
 export default function App() {
   return (
@@ -16,7 +17,7 @@ export default function App() {
           path="/"
           element={
             <Wrapper>
-              <FallBack />
+              <LoadingScreen />
             </Wrapper>
           }
         />
