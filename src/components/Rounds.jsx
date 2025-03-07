@@ -44,10 +44,7 @@ export default function Rounds() {
           </div>
         ))}
       </section>
-      <ProgressBar
-        bgcolor={roundsData[currentRound].bgColor}
-        completed={progress}
-      />
+      <ProgressBar bgcolor={roundsData[currentRound].bgColor} />
     </>
   );
 }
