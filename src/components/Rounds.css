@@ -5,6 +5,7 @@
     margin-bottom: 1.5rem;
     flex-wrap: wrap;
     justify-content: space-around;
+    margin:20px 0;
 }
 
 .round {
@@ -15,8 +16,8 @@
     align-items: center;
 }
 
-.round p {
-    font-size: 2rem;
+    .round p {
+        font-size: 2rem;
 }
 
 .round img{

@@ -13,14 +13,14 @@ const ProgressBarContainer = styled.section`
   @media (max-width: 720px) {
     height: 25px;
     border-width: 2px;
-    margin-top: 3rem;
+    margin: 2rem 0;
   }
 `;
 
 const ProgressFill = styled.div`
   height: 100%;
-  width: ${(props) => props.completed}%;
-  background-color: ${(props) => props.bgcolor};
+  width: ${(props) => props.$completed}%;
+  background-color: ${(props) => props.$bgcolor};
   text-align: right;
   border-radius: inherit;
   display: flex;
@@ -40,10 +40,10 @@ export default function ProgressBar({ bgcolor, completed }) {
   return (
     <ProgressBarContainer aria-label="Progress bar">
       <ProgressFill
-        bgcolor={bgcolor}
+        $bgcolor={bgcolor}
         role="progressbar"
         aria-valuenow={completed}
-        completed={completed}
+        $completed={completed}
         aria-valuemin="0"
         aria-valuemax="100"
       >

@@ -1,62 +1,85 @@
-.s-button{
+.s-button {
     font-family: "Cooper Hewitt", sans-serif;
     font-weight: bold;
     font-size: 3rem;
-    width:28rem;
-    padding:1.2rem 1.2rem;
+    width: 28rem;
+    padding: 1.2rem;
     background-color: black;
     color: white;
     border-radius: 16px;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s, background-color 0.3s;
 }
 
-.form-container{
-    height:32rem;
-    width:26rem;
+.s-button:hover {
+    transform: translateY(-3px);
+}
+
+.s-button:active {
+    transform: translateY(1px);
+}
+
+.form-container {
+    height: 32rem;
+    width: 26rem;
     background-color: #F1991B;
     border-radius: 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding:1.3rem;
-    border:solid black 4px;
+    padding: 1.3rem;
+    border: solid black 4px;
+    box-sizing: border-box;
 }
 
-.question-box{
+.question-box {
     flex-grow: 1;
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width:100%;
-    padding:0 10px;
-    
+    width: 100%;
 }
 
-.question-text{
-    font-size:1.2rem;
+.question-text {
+    font-size: 1.2rem;
+    font-family: monospace;
     margin-bottom: 20px;
+    text-align: center;
 }
 
-.navigation-buttons{
+.navigation-buttons {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width:100%;
+    width: 100%;
     margin-top: 10px;
 }
 
-
-.textarea-question {
+.btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    outline: none;
 }
 
-
-.multi-select-question {
-   
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
+.text-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2rem;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-family: monospace;
+    box-sizing: border-box;
+}
 
-.text-input,
 .textarea-input {
     width: 100%;
     padding: 10px;
@@ -64,41 +87,36 @@
     border: 2px solid black;
     border-radius: 5px;
     font-family: monospace;
-}
-
-.textarea-input {
-    width: 100%;
-    padding: 10px;
     box-sizing: border-box;
-    text-align: left;
-    line-height: 1.2;
-    overflow-y: auto;
-    white-space: pre-wrap;
-    resize: vertical;
-    height: 100px;
+    height: 150px;
     max-height: 300px;
+    resize: vertical;
+    overflow-y: auto;
+    text-align: left;
+    line-height: 1.5;
 }
-
 
 .options-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+    width: 100%;
 }
 
 .option-button {
     background-color: #FCEEE3;
     padding: 10px 15px;
-    border: none;
+    border: 2px solid black;
     border-radius: 5px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: bold;
 }
 
-.option-button:hover{
+.option-button:hover {
     background-color: black;
-    color:white;
+    color: white;
 }
 
 .option-button.selected {
@@ -106,53 +124,81 @@
     color: white;
 }
 
-
 .error-text {
     color: #f83c3c;
     font-size: 14px;
+    margin-top: 8px;
+    width: 100%;
+    text-align: center;
 }
 
-.review{
+.review {
     font-family: monospace;
-    margin-top:20px;
-    width:8rem;
-    padding:20px 24px;
+    margin-top: 20px;
+    width: 8rem;
+    padding: 20px 24px;
     font-size: 1.2rem;
     border-radius: 16px;
     background-color: #F1991B;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
+.review:hover {
+    background-color: #e78706;
+}
 
-@media(max-width:720px){
-    .s-button{
+.required-indicator {
+    color: #f83c3c;
+    margin-left: 4px;
+}
+
+.text-input.required,
+.textarea-input.required {
+    border-left: 4px solid #f83c3c;
+}
+
+@media (max-width: 720px) {
+    .s-button {
         font-size: 1.8rem;
         width: 16rem;
-        padding: 0.8rem 0.8rem;
+        padding: 0.8rem;
     }
 
-    .form-container{
-        width:17rem;
-       min-height:24rem;
-       height:auto;
-        padding:0.8rem;
+    .form-container {
+        width: 17rem;
+        min-height: 24rem;
+        height: auto;
+        padding: 0.8rem;
+        border-width: 3px;
     }
 
-    .question-text{
+    .question-text {
         font-size: 1rem;
     }
 
-    .navigation-buttons img{
-        width:3rem;
+    .navigation-buttons img {
+        width: 3rem;
     }
 
-    .option-button{
+    .option-button {
         font-size: 0.7rem;
-        padding:5px 8px;
+        padding: 5px 8px;
     }
 
-    .review{
+    .review {
         width: 8rem;
         padding: 16px 18px;
         font-size: 1.2rem;
+    }
+
+    .textarea-input {
+        height: 120px;
+        font-size: 1rem;
+    }
+
+    .text-input {
+        font-size: 1rem;
     }
 }
