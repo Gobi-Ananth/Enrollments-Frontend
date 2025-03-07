@@ -11,7 +11,14 @@ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<SignUpPage />} />
+        <Route
+          path="/"
+          element={
+            <Wrapper>
+              <Rounds />
+            </Wrapper>
+          }
+        />
       </Routes>
     </Router>
   );

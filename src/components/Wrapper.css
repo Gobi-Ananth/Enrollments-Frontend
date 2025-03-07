@@ -5,7 +5,7 @@
     text-align: center;
     background-color: #FCEEE3;
     min-height: 88vh;
-    min-width: 80vw;
+    width: 80vw;
     font-family: "Poppins", sans-serif;
     position: relative;
     border: solid black 3px;
