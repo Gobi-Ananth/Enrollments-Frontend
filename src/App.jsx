@@ -15,7 +15,7 @@ export default function App() {
           path="/"
           element={
             <Wrapper>
-              <Rounds />
+              <RoundZero />
             </Wrapper>
           }
         />

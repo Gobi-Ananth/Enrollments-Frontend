@@ -12,13 +12,14 @@
 .form-container{
     height:32rem;
     width:26rem;
-    background-color: #00A8E8;
+    background-color: #F1991B;
     border-radius: 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding:1.3rem;border:solid black 4px;
+    padding:1.3rem;
+    border:solid black 4px;
 }
 
 .question-box{
@@ -42,6 +43,7 @@
     align-items: center;
     justify-content: space-between;
     width:100%;
+    margin-top: 10px;
 }
 
 
@@ -66,31 +68,27 @@
 
 .textarea-input {
     width: 100%;
-        padding: 10px;
-        box-sizing: border-box;
-        text-align: left;
-        line-height: 1.2;
-        overflow-y: auto;
-        white-space: pre-wrap;
-        /* Ensures text wraps */
-        word-wrap: break-word;
-        /* Breaks long words */
-        resize: vertical;
-        /* Allows resizing vertically */
-        height: 100px;
-        /* Set an initial height */
-        max-height: 300px;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: left;
+    line-height: 1.2;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    resize: vertical;
+    height: 100px;
+    max-height: 300px;
 }
 
 
 .options-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
 }
 
 .option-button {
-    background-color: #e0e0e0;
+    background-color: #FCEEE3;
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
@@ -98,14 +96,19 @@
     transition: 0.3s;
 }
 
+.option-button:hover{
+    background-color: black;
+    color:white;
+}
+
 .option-button.selected {
-    background-color: #007bff;
+    background-color: #24B577;
     color: white;
 }
 
 
 .error-text {
-    color: red;
+    color: #f83c3c;
     font-size: 14px;
 }
 
@@ -117,4 +120,39 @@
     font-size: 1.2rem;
     border-radius: 16px;
     background-color: #F1991B;
+}
+
+
+@media(max-width:720px){
+    .s-button{
+        font-size: 1.8rem;
+        width: 16rem;
+        padding: 0.8rem 0.8rem;
+    }
+
+    .form-container{
+        width:17rem;
+       min-height:24rem;
+       height:auto;
+        padding:0.8rem;
+    }
+
+    .question-text{
+        font-size: 1rem;
+    }
+
+    .navigation-buttons img{
+        width:3rem;
+    }
+
+    .option-button{
+        font-size: 0.7rem;
+        padding:5px 8px;
+    }
+
+    .review{
+        width: 8rem;
+        padding: 16px 18px;
+        font-size: 1.2rem;
+    }
 }

@@ -116,7 +116,7 @@ export default function RoundZero() {
       questions[currentQuestion].required &&
       !answers[questions[currentQuestion].id]
     ) {
-      newErrors[questions[currentQuestion].id] = "This question is required.";
+      newErrors[questions[currentQuestion].id] = "Mandatory Question";
       setErrors(newErrors);
       return;
     } else {

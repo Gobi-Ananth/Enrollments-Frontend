@@ -31,7 +31,7 @@ const ProgressFill = styled.div`
   font-weight: bold;
   transition: width 0.4s ease-in-out, background-color 0.3s ease-in-out;
 
-  @media (max-width: 600px) {
+  @media (max-width: 720px) {
     font-size: 10px;
   }
 `;
