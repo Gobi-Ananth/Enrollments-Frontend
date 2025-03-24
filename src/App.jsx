@@ -8,19 +8,14 @@ import Interview from "./components/Interview";
 import SlotWindow from "./components/SlotWindow";
 import FallBack from "./components/FallBack";
 import LoadingScreen from "./components/LoadingScreen";
+import NotFoundScreen from "./components/NotFoundScreen";
+import InterviewAdmin from "./components/Admin-Components/InterviewAdmin";
 
 export default function App() {
   return (
     <Router>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Wrapper>
-              <Rounds />
-            </Wrapper>
-          }
-        />
+        <Route path="/" element={<InterviewAdmin />} />
       </Routes>
     </Router>
   );
