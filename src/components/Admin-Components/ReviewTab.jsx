@@ -52,26 +52,28 @@ export default function ReviewTab({
     currentInterview && currentInterview.admins[0] === adminName;
 
   return (
-    <div className="tabContent fade-in">
-      <h1 className="title">Review Candidates</h1>
+    <div className="admin_tabContent fade-in">
+      <h1 className="admin_title">Review Candidates</h1>
 
       {!currentReview ? (
-        <div className="emptyState">
+        <div className="admin_emptyState">
           <p>You haven't taken any interviews yet.</p>
           <p>Go to the Pending tab to take an interview.</p>
         </div>
       ) : !canReview ? (
-        <div className="warning">
+        <div className="admin_warning">
           <p>Only the admin who initiated the interview can submit a review.</p>
           <p>You can join the interview from the Ongoing tab.</p>
         </div>
       ) : (
-        <div className="reviewForm">
+        <div className="admin_reviewForm">
           <h2>Reviewing: {currentInterview?.name}</h2>
-          <p className="techStack">Tech Stack: {currentInterview?.techStack}</p>
+          <p className="admin_techStack">
+            Tech Stack: {currentInterview?.techStack}
+          </p>
 
           <form onSubmit={(e) => handleSubmit(e, currentReview)}>
-            <div className="formGroup">
+            <div className="admin_formGroup">
               <label htmlFor="technicalSkills">Technical Skills</label>
               <input
                 type="text"
@@ -85,7 +87,7 @@ export default function ReviewTab({
               />
             </div>
 
-            <div className="formGroup">
+            <div className="admin_formGroup">
               <label htmlFor="communicationSkills">Communication Skills</label>
               <input
                 type="text"
@@ -99,7 +101,7 @@ export default function ReviewTab({
               />
             </div>
 
-            <div className="formGroup">
+            <div className="admin_formGroup">
               <label htmlFor="problemSolving">Problem Solving</label>
               <input
                 type="text"
@@ -113,7 +115,7 @@ export default function ReviewTab({
               />
             </div>
 
-            <div className="formGroup">
+            <div className="admin_formGroup">
               <label htmlFor="codeQuality">Code Quality</label>
               <input
                 type="text"
@@ -127,7 +129,7 @@ export default function ReviewTab({
               />
             </div>
 
-            <div className="formGroup">
+            <div className="admin_formGroup">
               <label htmlFor="overallRating">Overall Rating (1-5)</label>
               <select
                 id="overallRating"
@@ -145,7 +147,7 @@ export default function ReviewTab({
               </select>
             </div>
 
-            <div className="formGroup">
+            <div className="admin_formGroup">
               <label htmlFor="feedback">Additional Feedback</label>
               <textarea
                 id="feedback"
@@ -160,8 +162,8 @@ export default function ReviewTab({
 
             <button
               type="submit"
-              className={`btn btn-primary submitButton ${
-                isSubmitting ? "loading" : ""
+              className={`admin_btn admin_btn-primary admin_submitButton ${
+                isSubmitting ? "admin_loading" : ""
               }`}
               disabled={isSubmitting}
             >

@@ -22,35 +22,37 @@ export default function PendingTab({
   }, [interviews]);
 
   return (
-    <div className="tabContent fade-in">
-      <h1 className="title">Pending Interviews</h1>
+    <div className="admin_tabContent fade-in">
+      <h1 className="admin_title">Pending Interviews</h1>
 
       {!hasMeetLink && (
-        <div className="warning">
+        <div className="admin_warning">
           <p>You need to create a meet link before taking interviews.</p>
           <p>Go to the Create tab to set up your meet link.</p>
         </div>
       )}
 
       {interviews.length === 0 ? (
-        <div className="emptyState">
+        <div className="admin_emptyState">
           <p>No pending interviews available.</p>
         </div>
       ) : (
-        <div className="interviewList">
+        <div className="admin_interviewList">
           {interviews.map((interview, index) => (
             <div
               key={interview.id}
-              className={`interviewCard ${
+              className={`admin_interviewCard ${
                 glitchIndex === index ? "glitchCard" : ""
               }`}
             >
-              <div className="interviewInfo">
+              <div className="admin_interviewInfo">
                 <h3>{interview.name}</h3>
-                <p className="techStack">Tech Stack: {interview.techStack}</p>
+                <p className="admin_techStack">
+                  Tech Stack: {interview.techStack}
+                </p>
               </div>
               <button
-                className="btn btn-primary"
+                className="admin_btn admin_btn-primary"
                 onClick={() => onTakeInterview(interview.id)}
                 disabled={!hasMeetLink}
               >

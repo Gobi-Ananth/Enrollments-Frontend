@@ -25,12 +25,12 @@ export default function CreateTab({ onCreateMeet }) {
   };
 
   return (
-    <div className="tabContent fade-in">
-      <h1 className="title">Create Meeting</h1>
+    <div className="admin_tabContent fade-in">
+      <h1 className="admin_title">Create Meeting</h1>
 
-      <div className="createForm">
+      <div className="admin_createForm">
         <form onSubmit={handleSubmit}>
-          <div className="formGroup">
+          <div className="admin_formGroup">
             <label htmlFor="meetLink">Meeting Link</label>
             <input
               type="url"
@@ -41,15 +41,15 @@ export default function CreateTab({ onCreateMeet }) {
               required
               className="input"
             />
-            <p className="hint">
+            <p className="admin_hint">
               Enter a valid meeting URL (Google Meet, Zoom, etc.)
             </p>
           </div>
 
           <button
             type="submit"
-            className={`btn btn-primary createButton ${
-              isSubmitting ? "loading" : ""
+            className={`admin_btn admin_btn-primary admin_createButton ${
+              isSubmitting ? "admin_loading" : ""
             }`}
             disabled={isSubmitting || !meetLink}
           >
@@ -57,7 +57,7 @@ export default function CreateTab({ onCreateMeet }) {
           </button>
 
           {success && (
-            <div className="successMessage">
+            <div className="admin_successMessage">
               <p>Meeting link created successfully!</p>
             </div>
           )}

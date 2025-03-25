@@ -1,17 +1,17 @@
-.tabContent {
+.admin_tabContent {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.title {
+.admin_title {
     font-size: 2.5rem;
     margin-bottom: 2rem;
     position: relative;
     display: inline-block;
 }
 
-.title::after {
+.admin_title::after {
     content: "";
     position: absolute;
     bottom: -10px;
@@ -21,12 +21,12 @@
     background: linear-gradient(to right, var(--accent), transparent);
 }
 
-.interviewList {
+.admin_interviewList {
     display: grid;
     gap: 1.5rem;
 }
 
-.interviewCard {
+.admin_interviewCard {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,7 +39,7 @@
     overflow: hidden;
 }
 
-.interviewCard::before {
+.admin_interviewCard::before {
     content: "";
     position: absolute;
     top: 0;
@@ -50,7 +50,7 @@
     opacity: 0.7;
 }
 
-.interviewCard:hover {
+.admin_interviewCard:hover {
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
     transform: translateY(-2px);
 }
@@ -85,33 +85,33 @@
     }
 }
 
-.interviewInfo {
+.admin_interviewInfo {
     flex: 1;
 }
 
-.interviewInfo h3 {
+.admin_interviewInfo h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
     color: var(--text);
 }
 
-.techStack {
+.admin_techStack {
     font-size: 0.9rem;
     color: #999;
     margin-bottom: 1rem;
 }
 
-.adminList {
+.admin_adminList {
     margin-top: 1rem;
 }
 
-.adminList h4 {
+.admin_adminList h4 {
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
     color: #999;
 }
 
-.adminItem {
+.admin_adminItem {
     display: inline-block;
     background-color: rgba(255, 0, 0, 0.1);
     border: 1px solid rgba(255, 0, 0, 0.3);
@@ -122,7 +122,7 @@
     font-size: 0.8rem;
 }
 
-.emptyState {
+.admin_emptyState {
     text-align: center;
     padding: 3rem;
     background-color: var(--secondary);
@@ -130,12 +130,12 @@
     border: 1px solid var(--border);
 }
 
-.emptyState p {
+.admin_emptyState p {
     color: #999;
     font-size: 1.2rem;
 }
 
-.warning {
+.admin_warning {
     background-color: rgba(255, 0, 0, 0.1);
     border: 1px solid rgba(255, 0, 0, 0.3);
     border-radius: 4px;
@@ -143,24 +143,24 @@
     margin-bottom: 2rem;
 }
 
-.warning p {
+.admin_warning p {
     color: var(--text);
     margin-bottom: 0.5rem;
 }
 
-.createForm,
-.reviewForm {
+.admin_createForm,
+.admin_reviewForm {
     background-color: var(--secondary);
     border: 1px solid var(--border);
     border-radius: 4px;
     padding: 2rem;
 }
 
-.formGroup {
+.admin_formGroup {
     margin-bottom: 1.5rem;
 }
 
-.formGroup label {
+.admin_formGroup label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: bold;
@@ -188,33 +188,33 @@
     box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
 }
 
-.hint {
+.admin_hint {
     font-size: 0.8rem;
     color: #666;
     margin-top: 0.5rem;
 }
 
-.createButton,
-.submitButton,
-.joinButton {
+.admin_createButton,
+.admin_submitButton,
+.admin_joinButton {
     display: flex;
     align-items: center;
     justify-content: center;
     min-width: 150px;
 }
 
-.buttonIcon {
+.admin_buttonIcon {
     margin-right: 0.5rem;
     width: 16px;
     height: 16px;
 }
 
-.loading {
+.admin_loading {
     position: relative;
     color: transparent !important;
 }
 
-.loading::after {
+.admin_loading::after {
     content: "";
     position: absolute;
     top: 50%;
@@ -234,7 +234,7 @@
     }
 }
 
-.successMessage {
+.admin_successMessage {
     margin-top: 1rem;
     padding: 1rem;
     background-color: rgba(0, 255, 0, 0.1);
@@ -243,7 +243,7 @@
     text-align: center;
 }
 
-.successMessage p {
+.admin_successMessage p {
     color: #00ff00;
     text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
 }

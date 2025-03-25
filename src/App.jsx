@@ -10,12 +10,13 @@ import FallBack from "./components/FallBack";
 import LoadingScreen from "./components/LoadingScreen";
 import NotFoundScreen from "./components/NotFoundScreen";
 import InterviewAdmin from "./components/Admin-Components/InterviewAdmin";
+import AdminSignUpPage from "./components/Admin-Components/AdminLogin";
 
 export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<InterviewAdmin />} />
+        <Route path="/" element={<AdminSignUpPage />} />
       </Routes>
     </Router>
   );

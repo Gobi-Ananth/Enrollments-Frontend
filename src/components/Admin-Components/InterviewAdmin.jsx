@@ -83,9 +83,9 @@ export default function InterviewAdmin() {
   };
 
   return (
-    <div className="admin-container">
+    <div className="admin_container">
       <Sidebar activeTab={activeTab} onTabChange={handleTabChange} />
-      <main className="content-area">
+      <main className="admin_content_area">
         {activeTab === "pending" && (
           <PendingTab
             interviews={interviews.filter((i) => i.status === "pending")}

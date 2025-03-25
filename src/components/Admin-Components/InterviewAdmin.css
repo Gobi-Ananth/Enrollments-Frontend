@@ -21,11 +21,12 @@
 body {
   background-color: var(--background);
   color: var(--text);
-  font-family: "Courier New", monospace;
+  
   overflow: hidden;
 }
 
-.admin-container {
+.admin_container {
+  font-family: "Courier New", monospace;
   display: flex;
   height: 100vh;
   width: 100vw;
@@ -33,7 +34,7 @@ body {
   position: relative;
 }
 
-.content-area {
+.admin_content_area {
   flex: 1;
   padding: 2rem;
   overflow-y: auto;
@@ -41,7 +42,7 @@ body {
   position: relative;
 }
 
-.content-area::before {
+.admin_content_area::before {
   content: "";
   position: absolute;
   top: 0;
@@ -52,26 +53,26 @@ body {
   pointer-events: none;
 }
 
-h1,
-h2,
-h3 {
+.admin_container h1,
+.admin_container h2,
+.admin_container h3 {
   font-family: "Horror", "Creepster", cursive;
   letter-spacing: 1px;
   margin-bottom: 1.5rem;
   text-shadow: 0 0 8px var(--accent-glow);
 }
 
-h1 {
+.admin_container h1 {
   font-size: 2.5rem;
   color: var(--accent);
 }
 
-h2 {
+.admin_container h2 {
   font-size: 2rem;
   color: var(--accent);
 }
 
-.card {
+.admin_card {
   background-color: var(--secondary);
   border: 1px solid var(--border);
   border-radius: 4px;
@@ -81,11 +82,11 @@ h2 {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.card:hover {
+.admin_card:hover {
   box-shadow: 0 0 15px var(--accent-glow);
 }
 
-.btn {
+.admin_btn {
   background-color: transparent;
   color: var(--text);
   border: 1px solid var(--accent);
@@ -101,37 +102,37 @@ h2 {
   overflow: hidden;
 }
 
-.btn:hover {
+.admin_btn:hover {
   background-color: var(--accent);
   color: var(--background);
   box-shadow: 0 0 15px var(--accent-glow);
 }
 
-.btn:disabled {
+.admin_btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
   border-color: #555;
 }
 
-.btn:disabled:hover {
+.admin_btn:disabled:hover {
   background-color: transparent;
   color: var(--text);
   box-shadow: none;
 }
 
-.btn-primary {
+.admin_btn-primary {
   background-color: var(--accent);
   color: var(--background);
 }
 
-.btn-primary:hover {
+.admin_btn-primary:hover {
   background-color: var(--background);
   color: var(--accent);
 }
 
-input,
-textarea,
-select {
+.admin_container input,
+.admin_container textarea,
+.admin_container select {
   background-color: var(--secondary);
   border: 1px solid var(--border);
   color: var(--text);
@@ -142,9 +143,9 @@ select {
   font-family: "Courier New", monospace;
 }
 
-input:focus,
-textarea:focus,
-select:focus {
+.admin_container input:focus,
+.admin_container textarea:focus,
+.admin_container select:focus {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 10px var(--accent-glow);
